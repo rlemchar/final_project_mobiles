@@ -3,7 +3,10 @@ package com.website.rox.ordermayab;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class SignIn extends AppCompatActivity {
 
@@ -12,9 +15,23 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+        RadioButton client_radioButton = (RadioButton)findViewById(R.id.client_RadioButton);
+        client_radioButton.setSelected(true);
     }
 
     public void next(View view){
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.typeOfClient_RadioGroup);
+        int radioButtonSelected = radioGroup.getCheckedRadioButtonId();
 
+        Intent nextSignIn;
+
+        if (radioButtonSelected == R.id.client_RadioButton){
+            nextSignIn = new Intent(this,ClientSignIn.class);
+        }else{
+            nextSignIn = new Intent(this,RestaurantSignIn.class);
+        }
+
+        startActivity(nextSignIn);
     }
 }

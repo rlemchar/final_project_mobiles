@@ -3,4 +3,6 @@
     <string name="title_activity_log_in">LogIn</string>
     <string name="title_activity_sign_in2">SignIn2</string>
     <string name="title_activity_main_client">MainClientActivity</string>
+    <string name="title_activity_client_sign_in">ClientSignIn</string>
+    <string name="title_activity_restaurant_sign_in">RestaurantSignIn</string>
 </resources>
