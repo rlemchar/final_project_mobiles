@@ -21,6 +21,10 @@
             android:name=".LogIn"
             android:label="@string/title_activity_log_in"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MainClientActivity" />
+        <activity android:name=".MainRestauActivity" />
+        <activity android:name=".AddItemToMenuActivity" />
+        <activity android:name=".MainMenuRestaurantActivity"></activity>
     </application>
 
 </manifest>
