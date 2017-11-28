@@ -39,7 +39,7 @@
         tools:layout_editor_absoluteX="81dp">
 
         <Spinner
-            android:id="@+id/spinner19"
+            android:id="@+id/morning_from_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -53,7 +53,7 @@
             android:textSize="16sp" />
 
         <Spinner
-            android:id="@+id/spinner18"
+            android:id="@+id/morning_to_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -206,7 +206,7 @@
         android:id="@+id/linearLayout2">
 
         <Spinner
-            android:id="@+id/spinner19"
+            android:id="@+id/afternoon_from_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -220,7 +220,7 @@
             android:textSize="16sp" />
 
         <Spinner
-            android:id="@+id/spinner18"
+            android:id="@+id/afternoon_to_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
