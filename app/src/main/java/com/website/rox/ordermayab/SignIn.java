@@ -32,6 +32,15 @@ public class SignIn extends AppCompatActivity {
             nextSignIn = new Intent(this,RestaurantSignIn.class);
         }
 
-        startActivity(nextSignIn);
+        startActivityForResult(nextSignIn,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i("XMAS","Dans on activity result");
+        if (resultCode==1){
+            finish();
+        }
     }
 }

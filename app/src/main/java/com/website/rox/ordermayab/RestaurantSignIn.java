@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class RestaurantSignIn extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class RestaurantSignIn extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +66,18 @@ public class RestaurantSignIn extends AppCompatActivity implements AdapterView.O
 
             // ADD TO DATABASE
             if (true){
+
                 // Successfully added to database
                 // name, manager, cuisine, opening_hour, closing_hour
+
                 Intent successfulRestaurantAdditionIntent = new Intent(
                         this,SuccessfulRestaurantAddition.class);
-                startActivity(successfulRestaurantAdditionIntent);
+                startActivityForResult(successfulRestaurantAdditionIntent,1);
             }else{
                 // Database Error
                 Intent additionErrorIntent = new Intent(
-                        this,SuccessfulClientAddition.class);
-                startActivity(additionErrorIntent);
+                        this,AdditionError.class);
+                startActivityForResult(additionErrorIntent,1);
             }
 
         }
@@ -85,12 +87,16 @@ public class RestaurantSignIn extends AppCompatActivity implements AdapterView.O
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i("XMAS","Dans on activity result !!");
+        Log.i("XMAS","RESUSLT CODE " + resultCode);
 
+        if(resultCode==1){
+            Log.i("XMAS","Result code == 1");
+            setResult(1);
+            finish();
+        }
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }

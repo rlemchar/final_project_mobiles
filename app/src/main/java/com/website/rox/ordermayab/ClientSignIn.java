@@ -64,21 +64,36 @@ public class ClientSignIn extends AppCompatActivity {
 
             // ADD TO DATABASE
             if (true){
+
                 // Successfully added to database
                 // universityID, firstName, lastName, semester, career
 
                 Intent successfulClientAdditionIntent = new Intent(
                         this,SuccessfulClientAddition.class);
-                startActivity(successfulClientAdditionIntent);
+                startActivityForResult(successfulClientAdditionIntent,1);
             }else{
                 // Database Error
                 Intent additionErrorIntent = new Intent(
-                        this,SuccessfulClientAddition.class);
-                startActivity(additionErrorIntent);
+                        this,AdditionError.class);
+                startActivityForResult(additionErrorIntent,1);
             }
 
         }
 
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i("XMAS","Dans on activity result !!");
+        Log.i("XMAS","RESUSLT CODE " + resultCode);
+
+        if(resultCode==1){
+            Log.i("XMAS","Result code == 1");
+            setResult(1);
+            finish();
+        }
+    }
+
 }

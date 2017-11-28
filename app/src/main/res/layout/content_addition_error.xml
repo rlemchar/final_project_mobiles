@@ -49,10 +49,11 @@
         android:layout_marginRight="8dp"
         android:background="#c33e3e"
         android:backgroundTint="#c33e3e"
+        android:onClick="returnToMainMenu"
         android:text="Return to main menu"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         tools:layout_editor_absoluteY="436dp" />
 </android.support.constraint.ConstraintLayout>
