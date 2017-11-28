@@ -16,8 +16,8 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        RadioButton client_radioButton = (RadioButton)findViewById(R.id.client_RadioButton);
-        client_radioButton.setSelected(true);
+        RadioGroup radioGroup = (RadioGroup)findViewById(R.id.typeOfClient_RadioGroup);
+        radioGroup.check(R.id.client_RadioButton);
     }
 
     public void next(View view){

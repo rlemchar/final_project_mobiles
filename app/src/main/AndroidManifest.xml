@@ -25,14 +25,8 @@
         <activity android:name=".MainRestauActivity" />
         <activity android:name=".AddItemToMenuActivity" />
         <activity android:name=".MainMenuRestaurantActivity" />
-        <activity
-            android:name=".ClientSignIn"
-            android:label="@string/title_activity_client_sign_in"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RestaurantSignIn"
-            android:label="@string/title_activity_restaurant_sign_in"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".RestaurantSignIn" />
+        <activity android:name=".ClientSignIn"></activity>
     </application>
 
 </manifest>

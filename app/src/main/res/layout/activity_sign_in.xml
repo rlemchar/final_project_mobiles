@@ -83,6 +83,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Client"
+            android:textSize="16sp"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
 
@@ -92,6 +93,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Restaurant"
+            android:textSize="16sp"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp" />
 
