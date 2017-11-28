@@ -19,16 +19,19 @@ public class Restaurant extends User {
     String name;
     String manager;
     String typeOfCuisine;
-    SimpleDateFormat[] schedule;
+    String opening_hour;
+    String closing_hour;
     List<MenuItem> menu;
 
-    Restaurant(String name, String manager, String typeOfCuisine){
+    Restaurant(String name, String manager, String typeOfCuisine,
+               String opening_hour, String closing_hour){
         super();
         type = restaurant;
         this.name = name;
         this.manager = manager;
         this.typeOfCuisine = typeOfCuisine;
-        // A VOIR POUR SCHEDULE
+        this.opening_hour = opening_hour;
+        this.closing_hour = closing_hour;
         menu = new ArrayList<MenuItem>();
     }
 

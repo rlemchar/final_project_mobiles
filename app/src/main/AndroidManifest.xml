@@ -26,7 +26,13 @@
         <activity android:name=".AddItemToMenuActivity" />
         <activity android:name=".MainMenuRestaurantActivity" />
         <activity android:name=".RestaurantSignIn" />
-        <activity android:name=".ClientSignIn"></activity>
+        <activity android:name=".ClientSignIn" />
+        <activity android:name=".SuccessfulClientAddition" />
+        <activity android:name=".SuccessfulRestaurantAddition" />
+        <activity
+            android:name=".AdditionError"
+            android:label="@string/title_activity_addition_error"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

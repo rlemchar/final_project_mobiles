@@ -14,23 +14,22 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
         android:background="#c33e3e"
         android:backgroundTint="#c33e3e"
         android:onClick="addAClient"
         android:text="create your account"
         android:textSize="16sp"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="25dp" />
 
     <LinearLayout
         android:layout_width="234dp"
         android:layout_height="25dp"
         android:layout_marginTop="34dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/editText4"
+        app:layout_constraintTop_toBottomOf="@+id/lastName_editText"
         android:id="@+id/linearLayout3"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -60,7 +59,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="16dp"
         android:text="Great ! A new client !"
         android:textSize="17sp"
         android:textStyle="bold"
@@ -70,55 +69,55 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/lastName_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Last Name"
+        android:hint="Last name"
         android:inputType="textPersonName"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText6"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/firstName_editText" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/firstName_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="First name"
         android:inputType="textPersonName"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/universityID_editText" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/universityID_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="University ID"
         android:inputType="textPersonName"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <LinearLayout
         android:layout_width="234dp"
@@ -149,14 +148,13 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="66dp"
-        android:layout_height="77dp"
+        android:layout_width="89dp"
+        android:layout_height="65dp"
         app:srcCompat="@drawable/eating"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/textView9"
+        android:layout_marginTop="61dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
         android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="1.0" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>
