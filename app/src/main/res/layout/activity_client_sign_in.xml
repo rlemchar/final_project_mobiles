@@ -8,17 +8,19 @@
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="49dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
+        android:background="#c33e3e"
+        android:backgroundTint="#c33e3e"
         android:onClick="addAClient"
         android:text="create your account"
         android:textSize="16sp"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
@@ -26,7 +28,7 @@
     <LinearLayout
         android:layout_width="234dp"
         android:layout_height="25dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="34dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/editText4"
         android:id="@+id/linearLayout3"
@@ -37,14 +39,13 @@
 
         <TextView
             android:id="@+id/textView12"
-            android:layout_width="match_parent"
+            android:layout_width="85dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:text="Semester :"
             android:textSize="16sp" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/semester_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -123,7 +124,7 @@
         android:layout_width="234dp"
         android:layout_height="25dp"
         android:orientation="horizontal"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="27dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         android:id="@+id/linearLayout4"
         android:layout_marginLeft="8dp"
@@ -133,17 +134,29 @@
 
         <TextView
             android:id="@+id/textView12"
-            android:layout_width="match_parent"
+            android:layout_width="67dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:text="Career :"
             android:textSize="16sp" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/career_spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="66dp"
+        android:layout_height="77dp"
+        app:srcCompat="@drawable/eating"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/textView9"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="1.0" />
 </android.support.constraint.ConstraintLayout>
