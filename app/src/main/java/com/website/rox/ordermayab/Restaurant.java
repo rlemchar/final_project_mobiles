@@ -23,10 +23,9 @@ public class Restaurant extends User {
     String closing_hour;
     List<MenuItem> menu;
 
-    Restaurant(String name, String manager, String typeOfCuisine,
+    Restaurant(int ID, String password,String name, String manager, String typeOfCuisine,
                String opening_hour, String closing_hour){
-        super();
-        type = restaurant;
+        super(ID,userType.restaurant,password);
         this.name = name;
         this.manager = manager;
         this.typeOfCuisine = typeOfCuisine;

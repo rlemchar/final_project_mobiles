@@ -1,6 +1,7 @@
 package com.website.rox.ordermayab;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,12 +48,14 @@ public class RestaurantSignIn extends AppCompatActivity {
         EditText cuisine_EditText = (EditText)findViewById(R.id.cuisine_restaurant_editText);
         Spinner morning_hours_spinner = (Spinner)findViewById(R.id.morning_hours_spinner);
         Spinner closing_hours_spinner = (Spinner)findViewById(R.id.afternoon_hours_spinner);
+        EditText password_EditText = (EditText)findViewById(R.id.passwordRestaurant_editText);
 
         String name = name_EditText.getText().toString();
         String manager = manager_EditText.getText().toString();
         String cuisine = cuisine_EditText.getText().toString();
         String opening_hour = morning_hours_spinner.getSelectedItem().toString();
         String closing_hour = closing_hours_spinner.getSelectedItem().toString();
+        String password = password_EditText.getText().toString();
 
         // All fields must be complete
         if (name.isEmpty() || manager.isEmpty() || cuisine.isEmpty()){
@@ -68,7 +71,10 @@ public class RestaurantSignIn extends AppCompatActivity {
             if (true){
 
                 // Successfully added to database
-                // name, manager, cuisine, opening_hour, closing_hour
+                // name, manager, cuisine, opening_hour, closing_hour, password
+
+                // POUR RECUPERER LE ID D'UN USER AVANT DE L'AJOUTER À LA BDD
+                // UTILISER getNextUserID()
 
                 Intent successfulRestaurantAdditionIntent = new Intent(
                         this,SuccessfulRestaurantAddition.class);
@@ -97,6 +103,22 @@ public class RestaurantSignIn extends AppCompatActivity {
             setResult(1);
             finish();
         }
+    }
+
+    public int getNextUserID(){
+        SharedPreferences settings = getSharedPreferences(MainActivity.SHARED_PREFERENCE_NAME, 0);
+        int nextID = settings.getInt("ID_counter",0);
+
+        if (nextID == 0){
+            // Couldn't retrieve from sharedPreferences
+            Log.i("XMAS","Error reading next user ID from database");
+            return nextID;
+        }else{
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("ID_counter",nextID+1);
+            return  nextID;
+        }
+
     }
 
 }

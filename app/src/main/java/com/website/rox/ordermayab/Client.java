@@ -26,10 +26,9 @@ public class Client extends User {
     careerType career;
     MethodOfPayement card=null;
 
-    Client(String universityID, String firstName, String lastName,
+    Client(int ID,String password,String universityID, String firstName, String lastName,
            int semester, careerType career){
-        super();
-        type = client;
+        super(ID,userType.client,password);
         this.universityID = universityID;
         this.firstName = firstName;
         this.lastName = lastName;
