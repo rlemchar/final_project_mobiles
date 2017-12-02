@@ -26,17 +26,6 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("ID_counter",1111111);
             editor.commit();
         }
-
-        // USING DATABASE
-        //DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        //databaseAccess.open();
-        //List<String> quotes = databaseAccess.getUser();
-        //databaseAccess.close();
-
-
-
-
-
     }
 
     public void signIn(View view){

@@ -55,14 +55,10 @@ public class DatabaseAccess {
         }
     }
 
-    /**
-     * Read all user from the database.
-     *
-     * @return a List of user
-     */
-    public List<String> getUser() {
+    // Return a list of restaurants
+    public List<String> getRestaurants() {
         List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM user", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM restaurants", null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             list.add(cursor.getString(1));
