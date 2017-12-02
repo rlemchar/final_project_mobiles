@@ -53,8 +53,8 @@ public class RestaurantSignIn extends AppCompatActivity {
         String name = name_EditText.getText().toString();
         String manager = manager_EditText.getText().toString();
         String cuisine = cuisine_EditText.getText().toString();
-        String opening_hour = morning_hours_spinner.getSelectedItem().toString();
-        String closing_hour = closing_hours_spinner.getSelectedItem().toString();
+        String openingHour = morning_hours_spinner.getSelectedItem().toString();
+        String closingHour = closing_hours_spinner.getSelectedItem().toString();
         String password = password_EditText.getText().toString();
 
         // All fields must be complete
@@ -71,7 +71,7 @@ public class RestaurantSignIn extends AppCompatActivity {
             if (true){
 
                 // Successfully added to database
-                // name, manager, cuisine, opening_hour, closing_hour, password
+                // name, manager, cuisine, openingHour, closing_hour, password
 
                 // POUR RECUPERER LE ID D'UN USER AVANT DE L'AJOUTER À LA BDD
                 // UTILISER getNextUserID()

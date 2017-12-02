@@ -19,18 +19,18 @@ public class Restaurant extends User {
     String name;
     String manager;
     String typeOfCuisine;
-    String opening_hour;
-    String closing_hour;
+    String openingHour;
+    String closingHour;
     List<MenuItem> menu;
 
     Restaurant(int ID, String password,String name, String manager, String typeOfCuisine,
-               String opening_hour, String closing_hour){
+               String openingHour, String closingHour){
         super(ID,userType.restaurant,password);
         this.name = name;
         this.manager = manager;
         this.typeOfCuisine = typeOfCuisine;
-        this.opening_hour = opening_hour;
-        this.closing_hour = closing_hour;
+        this.openingHour = openingHour;
+        this.closingHour = closingHour;
         menu = new ArrayList<MenuItem>();
     }
 
