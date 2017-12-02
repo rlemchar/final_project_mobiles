@@ -32,7 +32,8 @@
         <activity
             android:name=".AdditionError"
             android:label="@string/title_activity_addition_error"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PaymentActivity"></activity>
     </application>
 
 </manifest>
