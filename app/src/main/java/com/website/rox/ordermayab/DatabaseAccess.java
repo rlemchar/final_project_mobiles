@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,5 +67,34 @@ public class DatabaseAccess {
         }
         cursor.close();
         return list;
+    }
+
+    // Return a list of restaurants
+    public List<String> getMenuItems() {
+        List<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM menuItem", null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            list.add(cursor.getString(0));
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return list;
+    }
+
+    // Verifies id and password
+    public boolean verifyIdentifyers(int ID, String password){
+        Cursor cursor = database.rawQuery("SELECT password FROM users WHERE id=" + ID, null);
+        if (cursor!=null){
+            cursor.moveToFirst();
+            String foundPassword = cursor.getString(0);
+            if(foundPassword.equals(password)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
     }
 }

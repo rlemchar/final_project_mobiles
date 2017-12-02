@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -26,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("ID_counter",1111111);
             editor.commit();
         }
+
+        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        databaseAccess.open();
+        boolean answer = databaseAccess.verifyIdentifyers(2,"roxrox");
+        databaseAccess.close();
+
+        Log.i("XMAS","ANSWER LOGIN :" + answer);
     }
 
     public void signIn(View view){
