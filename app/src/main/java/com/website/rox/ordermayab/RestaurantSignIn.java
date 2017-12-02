@@ -2,18 +2,21 @@ package com.website.rox.ordermayab;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class RestaurantSignIn extends AppCompatActivity {
 
+    private static final String TAG = "RestaurantSignIn";
+
+    SQLiteHelper mSQLiteHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,31 +68,64 @@ public class RestaurantSignIn extends AppCompatActivity {
                     "All fields must be completed", Snackbar.LENGTH_LONG);
             error_empty_field_snackbar.show();
 
-        }else{
-
+        }else {
             // ADD TO DATABASE
-            if (true){
+            /*
+            String dataStr = ("Nombre: " + name + "\n" + "manager: " + manager + "\n" +
+                    "cuisine: " + cuisine + "\n" + "opening_hour: " + opening_hour + "\n"
+                    + "closing_hour: " + closing_hour + "\n" + "password: " + password);
+//
 
-                // Successfully added to database
-                // name, manager, cuisine, opening_hour, closing_hour, password
+
+            // Successfully added to database
+            // name, manager, cuisine, opening_hour, closing_hour, password
+            boolean dbInsert = AddData(dataStr);
+            if (dbInsert) {
+            */
+            if (true){
 
                 // POUR RECUPERER LE ID D'UN USER AVANT DE L'AJOUTER À LA BDD
                 // UTILISER getNextUserID()
 
                 Intent successfulRestaurantAdditionIntent = new Intent(
-                        this,SuccessfulRestaurantAddition.class);
-                startActivityForResult(successfulRestaurantAdditionIntent,1);
-            }else{
+                        this, SuccessfulRestaurantAddition.class);
+                startActivityForResult(successfulRestaurantAdditionIntent, 1);
+            } else {
                 // Database Error
                 Intent additionErrorIntent = new Intent(
-                        this,AdditionError.class);
-                startActivityForResult(additionErrorIntent,1);
+                        this, AdditionError.class);
+                startActivityForResult(additionErrorIntent, 1);
             }
+            /*
 
+            // Create a new map of values, where column names are the keys
+            ContentValues values = new ContentValues();
+            values.put(TABLE_NAME2, title);
+            values.put(FeedEntry.COLUMN_NAME_SUBTITLE, subtitle);
+
+// Insert the new row, returning the primary key value of the new row
+            long newRowId = db.insert(FeedEntry.TABLE_NAME, null, values);
+            */
         }
 
+    }
 
+    public boolean AddData(String newEntry) {
+        boolean insertData = mSQLiteHelper.addRestaurant(newEntry);
+        boolean i = false;
+        if (insertData) {
+            toastMessage("Data Successfully Inserted!");
+            i = true;
+            return i;
+        }else{
+            toastMessage("Something went wrong");
+            return i;
+        }
+    }
 
+    //CUSTOMIZABLE TOAST MESSAGE
+    private void toastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

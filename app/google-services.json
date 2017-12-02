@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "748280704105",
+    "firebase_url": "https://finalprojectmobiles.firebaseio.com",
+    "project_id": "finalprojectmobiles",
+    "storage_bucket": "finalprojectmobiles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748280704105:android:822abcdd096c438b",
+        "android_client_info": {
+          "package_name": "com.website.rox.ordermayab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748280704105-82gdq59ds5t54csu27j4fcqq3nlmbeeh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.website.rox.ordermayab",
+            "certificate_hash": "3296a527c2e49debcc6e6115f9d733afc7ecddfc"
+          }
+        },
+        {
+          "client_id": "748280704105-o9mapl9ri33soralbcgggka84o0cahlq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoJ3hM8MHel2vvu3HoHz16NXORFwwG8ek"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748280704105-o9mapl9ri33soralbcgggka84o0cahlq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -48,11 +48,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 + KEY_DESCRIPTION + " TEXT," + KEY_PRICE + " FLOAT" + ")";
 
         sqLiteDatabase.execSQL(CREATE_TABLEITEM);
+
         String CREATE_TABLERESTO = "CREATE TABLE " + TABLE_NAME2 + " ("
                 + KEY_IDRESTO + " INTEGER PRIMARY KEY," + KEY_NAMERESTO + " TEXT,"
                 + KEY_MANAGER + " TEXT," + KEY_CUISINETYPE + " TEXT,"
                  + KEY_TYPE  + " TEXT" + ")";
 
+        sqLiteDatabase.execSQL(CREATE_TABLERESTO);
 
     }
 
