@@ -5,6 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("ID_counter",1111111);
             editor.commit();
         }
+
+        // USING DATABASE
+        //DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        //databaseAccess.open();
+        //List<String> quotes = databaseAccess.getUser();
+        //databaseAccess.close();
+
 
 
 
