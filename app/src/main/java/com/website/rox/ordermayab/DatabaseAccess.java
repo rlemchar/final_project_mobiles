@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseAccess {
     private SQLiteOpenHelper openHelper;
@@ -56,25 +55,47 @@ public class DatabaseAccess {
     }
 
     // Return a list of restaurants
-    public List<String> getRestaurants() {
-        List<String> list = new ArrayList<>();
+    public ArrayList<String> getRestaurants(int dataToGet) {
+        ArrayList<String>  list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM restaurants", null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(1));
-            cursor.moveToNext();
+        if(dataToGet==1){ //we want the name
+            while (!cursor.isAfterLast()) {
+                list.add(cursor.getString(1));
+                cursor.moveToNext();
+            }
+            cursor.close();
         }
-        cursor.close();
+        else{ //we want the ID
+            while (!cursor.isAfterLast()) {
+                list.add(cursor.getString(0));
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+
         return list;
     }
 
+    public int  getRestaurantIdByName(String name) {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT id FROM restaurants WHERE name=" + name, null);
+        cursor.moveToFirst();
+        int restaurantID = 0;
+        while(cursor.moveToNext()) {
+            restaurantID = cursor.getInt(0);
+        }
+      return restaurantID;
+    }
+
     // Return a list of restaurants
-    public List<String> getMenuItems() {
-        List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM menuItem", null);
+    public  ArrayList<MenuItem> getMenuItems(int restaurant) {
+        ArrayList<MenuItem> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM menuItem WHERE restaurantId=" + restaurant, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0));
+            MenuItem item = new MenuItem(cursor.getString(0), cursor.getString(1), cursor.getDouble(2));
+            list.add(item);
             cursor.moveToNext();
         }
         cursor.close();

@@ -31,7 +31,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".ClientOrder" />
-        <activity android:name=".LogInActivity"></activity>
+        <activity android:name=".LogInActivity" />
+        <activity android:name=".ClientSelectRestaurantActivity" />
+        <activity android:name=".ClientSeeOrderActivity" />
+        <activity android:name=".ClientChooseMenu"></activity>
     </application>
 
 </manifest>

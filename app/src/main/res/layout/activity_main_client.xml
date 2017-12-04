@@ -15,6 +15,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="#c33e3e"
+        android:onClick="seeOrder"
         android:text="SEE YOUR ORDERS"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,9 +23,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.817"
-        tools:text="SEE YOUR ORDERS"
+        tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="377dp"
-        tools:layout_editor_absoluteX="94dp" />
+        tools:text="SEE YOUR ORDERS" />
 
     <Button
         android:id="@+id/order"
@@ -35,6 +36,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="#c33e3e"
+        android:onClick="Order"
         android:text="NEW ORDER"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
