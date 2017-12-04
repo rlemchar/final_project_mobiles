@@ -16,7 +16,7 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
     }
-
+/*
     public void LogIn (View v)
     {
         EditText user = (EditText)findViewById(R.id.userId);
@@ -75,7 +75,7 @@ public class LogInActivity extends AppCompatActivity {
         }
 
     }
-
+*/
     private boolean validateEditText(EditText editText) {
         String data = editText.getText().toString();
         if (TextUtils.isEmpty(data) == true) {

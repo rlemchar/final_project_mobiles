@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,28 +83,50 @@ public class DatabaseAccess {
     }
 
     // Verifies id and password
-    public static int verifyIdentifyers(int ID, String password) {
+    public User verifyLogin(int ID, String password) {
         Cursor cursor = database.rawQuery("SELECT password FROM users WHERE id=" + ID, null);
-        String foundtype = "";
-        int type = 0;
+
         if (cursor != null) {
+            // The user exists
             cursor.moveToFirst();
             String foundPassword = cursor.getString(0);
             if (foundPassword.equals(password)) {
-                Cursor cursorType = database.rawQuery("SELECT type FROM users WHERE id=" + ID, null);
-                if (cursor != null) {
-                    cursor.moveToFirst();
-                    foundtype = cursorType.getString(0);
-                    if (foundtype.equals("client")) {
-                        type = 1;
-
-                    } else if (foundtype.equals("restaurant")) {
-                        type = 2;
-                    }
-                }
+                // The password is correct
+                return initiateUserFromDatabase(ID);
             }
         }
-        return type;
+        return null;
+    }
+
+    private User initiateUserFromDatabase(int ID){
+        Cursor cursorUser = database.rawQuery("SELECT * FROM users WHERE id=" + ID, null);
+        User newUser;
+        cursorUser.moveToFirst();
+        if (cursorUser.getString(1).equals("Client")){
+            // The logger is a Client
+            Cursor cursorClient = database.rawQuery("SELECT * FROM clients WHERE id=" + ID, null);
+            cursorClient.moveToFirst();
+            newUser = new Client(ID,
+                    cursorUser.getString(2),
+                    cursorClient.getString(1),
+                    cursorClient.getString(2),
+                    cursorClient.getString(3),
+                    Integer.parseInt(cursorClient.getString(4)),
+                    Client.stringToCareerType(cursorClient.getString(4)));
+
+        }else{
+          // The logger is a Restaurant
+            Cursor cursorRestaurant = database.rawQuery("SELECT * FROM restaurants WHERE id=" + ID, null);
+            cursorRestaurant.moveToFirst();
+            newUser = new Restaurant(ID,
+                    cursorUser.getString(2),
+                    cursorRestaurant.getString(1),
+                    cursorRestaurant.getString(2),
+                    cursorRestaurant.getString(3),
+                    cursorRestaurant.getString(4),
+                    cursorRestaurant.getString(5));
+        }
+        return newUser;
     }
 
 }

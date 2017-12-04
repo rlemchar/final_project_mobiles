@@ -90,7 +90,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="#c33e3e"
-        android:onClick="LogIn"
         android:text="Connect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
