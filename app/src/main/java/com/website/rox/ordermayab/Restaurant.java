@@ -4,6 +4,8 @@ package com.website.rox.ordermayab;
 
 
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,5 +35,9 @@ public class Restaurant extends User {
 
     void addItemToMenu(MenuItem item){
         menu.add(item);
+    }
+
+    public void print(){
+        Log.i("XMAS","RESTAURANT :" + this.ID + this.password + this.name+ this.typeOfCuisine);
     }
 }

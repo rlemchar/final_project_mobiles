@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i("XMAS","In on create");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -22,13 +24,6 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("ID_counter",1111111);
             editor.commit();
         }
-
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        databaseAccess.open();
-        //int answer = databaseAccess.verifyIdentifyers(2,"roxrox");
-        databaseAccess.close();
-
-        //Log.i("XMAS","ANSWER LOGIN :" + answer);
     }
 
     public void signIn(View view){

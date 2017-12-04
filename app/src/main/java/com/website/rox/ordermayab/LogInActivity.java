@@ -2,6 +2,7 @@ package com.website.rox.ordermayab;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,60 +18,40 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
     }
 
-    public void LogIn (View v)
-    {
-        EditText user = (EditText)findViewById(R.id.userId);
-        EditText password = (EditText)findViewById(R.id.password);
+    public void LogIn (View v) {
 
-        if (validateEditText(user) == false || validateEditText(password) == false  )
-        {
+        EditText id_edit = (EditText)findViewById(R.id.userId);
+        EditText password_edit = (EditText)findViewById(R.id.password);
+
+        if (validateEditText(id_edit) == false || validateEditText(password_edit) == false){
 //            showSnackbar("Fill in the field!");
-        }
-        else {
-            int User = Integer.parseInt(user.getText().toString());
-            String Password = password.getText().toString();
-            int type = DatabaseAccess.verifyIdentifyers(User, Password);
-            if(type !=0)
-            {
-                if(type==1){
-                    com.website.rox.ordermayab.User.userType utype = com.website.rox.ordermayab.User.userType.client;
-                    User connectedUser = null;
-                    try {
-                        connectedUser = com.website.rox.ordermayab.User.class.newInstance();
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                    connectedUser.ID = User;
-                    connectedUser.password= Password;
-                    connectedUser.type = utype;
-                    Intent i = new Intent(this, MainRestauActivity.class);
-                    i.putExtra("user", User);
-                    startActivity(i);
+        } else {
+            int id = Integer.parseInt(id_edit.getText().toString());
+            String password = password_edit.getText().toString();
+
+            DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+            databaseAccess.open();
+            User user = databaseAccess.verifyLogin(id,password);
+
+            if (user == null ){
+                // wrong credential
+                Snackbar Snackbar_wrongCredentials =
+                        Snackbar.make(findViewById(R.id.login_title),"Wrong credentials",3);
+                Snackbar_wrongCredentials.show();
+                id_edit.setText("");
+                password_edit.setText("");
+            }else{
+                if (user.type == User.userType.client){
+                    LoggedIn.setWhoIsLoggedIn(user);
+                    Intent clientIntent = new Intent(this, MainClientActivity.class);
+                    startActivity(clientIntent);
+                }else{
+                    LoggedIn.setWhoIsLoggedIn(user);
+                    Intent restaurantIntent = new Intent(this, MainRestauActivity.class);
+                    startActivity(restaurantIntent);
                 }
-                else{
-                    com.website.rox.ordermayab.User.userType utype = com.website.rox.ordermayab.User.userType.restaurant;
-                    User connectedUser = null;
-                    try {
-                        connectedUser = com.website.rox.ordermayab.User.class.newInstance();
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                    connectedUser.ID = User;
-                    connectedUser.password= Password;
-                    connectedUser.type = utype;
-                    Intent i = new Intent(this, MainClientActivity.class);
-                    i.putExtra("user", User);
-                    startActivity(i);
-
-
-
-                }
-
             }
+
 
         }
 

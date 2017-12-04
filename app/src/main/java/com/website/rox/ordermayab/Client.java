@@ -1,5 +1,7 @@
 package com.website.rox.ordermayab;
 
+import android.util.Log;
+
 import static com.website.rox.ordermayab.User.userType.client;
 
 /**
@@ -41,5 +43,27 @@ public class Client extends User {
         card = new MethodOfPayement(cardNumber,expirationDate,cryptogram,cardHolder);
     }
 
+    public static careerType stringToCareerType(String career){
+        if (career.equals("medecine")){
+            return careerType.medicine;
+        }else if (career.equals("architecture")){
+            return careerType.architecture;
+        }else if (career.equals("design")){
+            return careerType.design;
+        }else if (career.equals("engineering")){
+            return careerType.engineering;
+        }else if (career.equals("psychology")){
+            return careerType.psychology;
+        }else if (career.equals("business")){
+            return careerType.business;
+        }else if (career.equals("communication")){
+            return careerType.communication;
+        }else {
+            return careerType.tourism;
+        }
+    }
 
+    public void print(){
+        Log.i("XMAS","CLIENT :" +this.ID + this.password + this.firstName+ this.career);
+    }
 }
