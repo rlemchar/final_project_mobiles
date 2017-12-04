@@ -17,10 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignIn" />
-        <activity
-            android:name=".LogIn"
-            android:label="@string/title_activity_log_in"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainClientActivity" />
         <activity android:name=".MainRestauActivity" />
         <activity android:name=".AddItemToMenuActivity" />
@@ -33,11 +29,9 @@
             android:name=".AdditionError"
             android:label="@string/title_activity_addition_error"
             android:theme="@style/AppTheme.NoActionBar" />
-<<<<<<< HEAD
-        <activity android:name=".PaymentActivity"></activity>
-=======
-        <activity android:name=".ClientOrder"></activity>
->>>>>>> 99b271e59be8201c7ca8f61cca0a73f9830f1489
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".ClientOrder" />
+        <activity android:name=".LogInActivity"></activity>
     </application>
 
 </manifest>

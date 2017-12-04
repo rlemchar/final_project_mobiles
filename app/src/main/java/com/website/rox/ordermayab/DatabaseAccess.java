@@ -8,14 +8,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseAccess {
     private SQLiteOpenHelper openHelper;
-    private SQLiteDatabase database;
+    private static SQLiteDatabase database;
     private static DatabaseAccess instance;
 
     /**
@@ -83,18 +82,28 @@ public class DatabaseAccess {
     }
 
     // Verifies id and password
-    public boolean verifyIdentifyers(int ID, String password){
+    public static int verifyIdentifyers(int ID, String password) {
         Cursor cursor = database.rawQuery("SELECT password FROM users WHERE id=" + ID, null);
-        if (cursor!=null){
+        String foundtype = "";
+        int type = 0;
+        if (cursor != null) {
             cursor.moveToFirst();
             String foundPassword = cursor.getString(0);
-            if(foundPassword.equals(password)){
-                return true;
-            }else{
-                return false;
+            if (foundPassword.equals(password)) {
+                Cursor cursorType = database.rawQuery("SELECT type FROM users WHERE id=" + ID, null);
+                if (cursor != null) {
+                    cursor.moveToFirst();
+                    foundtype = cursorType.getString(0);
+                    if (foundtype.equals("client")) {
+                        type = 1;
+
+                    } else if (foundtype.equals("restaurant")) {
+                        type = 2;
+                    }
+                }
             }
-        }else{
-            return false;
         }
+        return type;
     }
+
 }

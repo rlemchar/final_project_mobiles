@@ -4,12 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
-        boolean answer = databaseAccess.verifyIdentifyers(2,"roxrox");
+        //int answer = databaseAccess.verifyIdentifyers(2,"roxrox");
         databaseAccess.close();
 
-        Log.i("XMAS","ANSWER LOGIN :" + answer);
+        //Log.i("XMAS","ANSWER LOGIN :" + answer);
     }
 
     public void signIn(View view){
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logIn(View view){
-        Intent goToLogIn = new Intent(this,LogIn.class);
+        Intent goToLogIn = new Intent(this,LogInActivity.class);
         startActivity(goToLogIn);
     }
 
