@@ -85,8 +85,7 @@ public class DatabaseAccess {
     // Verifies id and password
     public User verifyLogin(int ID, String password) {
         Cursor cursor = database.rawQuery("SELECT password FROM users WHERE id=" + ID, null);
-
-        if (cursor != null) {
+        if (!cursor.isAfterLast()) {
             // The user exists
             cursor.moveToFirst();
             String foundPassword = cursor.getString(0);
