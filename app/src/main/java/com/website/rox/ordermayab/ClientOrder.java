@@ -1,11 +1,7 @@
 package com.website.rox.ordermayab;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import java.util.List;
+import android.support.v7.app.AppCompatActivity;
 
 public class ClientOrder extends AppCompatActivity {
 
@@ -15,7 +11,7 @@ public class ClientOrder extends AppCompatActivity {
         setContentView(R.layout.activity_client_order);
 
         // Displaying the restaurants
-        ListView restaurants_listView = (ListView)findViewById(R.id.restaurants_listView);
+        /*ListView restaurants_listView = (ListView)findViewById(R.id.restaurants_listView);
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
         List<String> restaurants = databaseAccess.getRestaurants();
@@ -24,6 +20,7 @@ public class ClientOrder extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, restaurants);
         restaurants_listView.setAdapter(adapter);
+        */
 
     }
 }
