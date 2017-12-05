@@ -34,7 +34,8 @@
         <activity android:name=".LogInActivity" />
         <activity android:name=".ClientSelectRestaurantActivity" />
         <activity android:name=".ClientSeeOrderActivity" />
-        <activity android:name=".ClientChooseMenu"></activity>
+        <activity android:name=".ClientChooseMenu" />
+        <activity android:name=".OrderConfirmation"></activity>
     </application>
 
 </manifest>

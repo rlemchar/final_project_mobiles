@@ -3,12 +3,12 @@ package com.website.rox.ordermayab;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,21 +26,26 @@ public class ClientChooseMenu extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listview);
         //openHelper = new SQLiteOpenHelper(this);
 
-        populateListView();
+
         k = getIntent();
-        String restaurantName = k.getStringExtra("restaurantId");
-        TextView title = (TextView) findViewById(R.id.restaurant);
-        title.setText(restaurantName);
+        String id = k.getStringExtra("restaurantId");
+        Log.i("restoId dans ChooseMenu", "" + id);
+        //String restaurantName = k.getStringExtra("restaurantId");
+        //TextView title = (TextView) findViewById(R.id.restaurant);
+        //title.setText(restaurantName);
+        populateListView();
     }
 
     private void populateListView() {
 
-        int clientId = k.getIntExtra("clientId", 0);
-        String restaurantName = k.getStringExtra("nombre");
-        int restaurantId = k.getIntExtra("restaurantId",0);
+        String resto = k.getStringExtra("restaurantId");
+        int restaurantId = Integer.parseInt(resto);
 
+        Log.i("restoId dans ChooseMenu", "" + restaurantId);
         //GET THE DATA AND APPEND TO A LIST
-        ArrayList<MenuItem> listData = instance.getMenuItems(restaurantId);
+        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        databaseAccess.open();
+        ArrayList<String> listData = databaseAccess.getMenuItemsNames(restaurantId);
 
 
         //CREATE THE LIST ADAPTER AND SET THE ADAPTER
@@ -50,13 +55,15 @@ public class ClientChooseMenu extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String nombre = adapterView.getItemAtPosition(i).toString();
+
+
+                String menuName = adapterView.getItemAtPosition(i).toString();
+
                 int restaurantId = k.getIntExtra("restaurantId",0);
-                int clientId = k.getIntExtra("clientId", 0);
+
                 Intent chooseMenuScreenIntent = new Intent(ClientChooseMenu.this, PaymentActivity.class);
-                chooseMenuScreenIntent.putExtra("id", restaurantId);
-                chooseMenuScreenIntent.putExtra("menuItem", nombre);
-                chooseMenuScreenIntent.putExtra("clientId", clientId);
+                //chooseMenuScreenIntent.putExtra("id", restaurantId);
+                chooseMenuScreenIntent.putExtra("menuItem", menuName);
                 startActivity(chooseMenuScreenIntent);
 
             }
