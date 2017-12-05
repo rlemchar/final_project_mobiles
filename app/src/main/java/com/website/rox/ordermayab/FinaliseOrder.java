@@ -1,19 +1,20 @@
 package com.website.rox.ordermayab;
 
+import android.content.ClipData;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import java.util.List;
+public class FinaliseOrder extends AppCompatActivity {
 
-public class MainRestauActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_restau);
+        setContentView(R.layout.activity_finalise_order);
+
+        OrderDatabase.addOrder();
     }
 
-    public void refreshOrdersDisplay(List<Order> orders){
-        
-    }
+
 }

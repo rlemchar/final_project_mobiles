@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "748280704105-oo205vufffp13ti4d59rqi5f9stfoqla.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.website.rox.ordermayab",
+            "certificate_hash": "ca19837a47a024daf1a023d2cd0d7b1189f97c69"
+          }
+        },
+        {
           "client_id": "748280704105-82gdq59ds5t54csu27j4fcqq3nlmbeeh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

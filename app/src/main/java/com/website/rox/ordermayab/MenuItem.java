@@ -6,9 +6,9 @@ package com.website.rox.ordermayab;
 
 public class MenuItem {
 
-    String name;
-    String description;
-    double price;
+    public String name;
+    public String description;
+    public double price;
 
     MenuItem(String name,String description,double price){
         this.name = name;
