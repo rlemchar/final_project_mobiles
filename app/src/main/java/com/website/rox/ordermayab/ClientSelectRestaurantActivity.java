@@ -61,18 +61,32 @@ public class ClientSelectRestaurantActivity extends AppCompatActivity {
             DatabaseAccess databaseAccess = DatabaseAccess.getInstance(ClientSelectRestaurantActivity.this);
             databaseAccess.open();
             String restoName = adapterView.getItemAtPosition(i).toString();
+            Log.i("restoName", restoName);
             ArrayList<Restaurant> restaurants = databaseAccess.getRestaurants();
             //GET THE ID ASSOCIATED WITH THAT NAME
-            //int index = restaurants.indexOf(restoName);
-            //Log.i("index", "" + index);
-            int restaurantId = restaurants.get(i).ID;
+            int j =0;
+            int restaurantId;
+            if(restaurants.get(j).name.equals(restoName))
+            {
+                restaurantId= restaurants.get(j).ID;
+            }
+            else{
+                while(!restaurants.get(j).name.equals(restoName))
+                {
+                    j++;
+                }
+                restaurantId= restaurants.get(j).ID;
+
+            }
+
             String restoId = Integer.toString(restaurantId);
             Log.i("restaurantId", ""+  restaurantId);
 
            // int restaurantId = databaseAccess.getRestaurantIdByName(nombre);
             Intent chooseMenuScreenIntent = new Intent(ClientSelectRestaurantActivity.this, ClientChooseMenu.class);
             chooseMenuScreenIntent.putExtra("restaurantId",restoId);
-            //chooseMenuScreenIntent.putExtra("nombre", nombre);
+
+            chooseMenuScreenIntent.putExtra("restoName", restoName);
             //chooseMenuScreenIntent.putExtra("clientId", clientId);
             startActivity(chooseMenuScreenIntent);
 

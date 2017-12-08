@@ -1,7 +1,5 @@
 package com.website.rox.ordermayab;
 
-import android.util.Log;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,14 +12,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class OrderDatabase {
 
-    public static void addOrder(){
+    public static void addOrder(Order order){
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference orders = database.getReference("orders");
-
-        //A SUPP
-        MenuItem item = new MenuItem("spaghetti","muy bonito",50);
-        Order ordertest = new Order(item,1,4,1);
 
         orders.addValueEventListener(new ValueEventListener() {
             @Override
@@ -35,7 +29,7 @@ public class OrderDatabase {
             }
         });
 
-        orders.push().setValue(ordertest);
+        orders.push().setValue(order);
 
     }
 

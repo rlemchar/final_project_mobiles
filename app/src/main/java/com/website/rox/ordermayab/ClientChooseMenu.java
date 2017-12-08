@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -30,9 +31,9 @@ public class ClientChooseMenu extends AppCompatActivity {
         k = getIntent();
         String id = k.getStringExtra("restaurantId");
         Log.i("restoId dans ChooseMenu", "" + id);
-        //String restaurantName = k.getStringExtra("restaurantId");
-        //TextView title = (TextView) findViewById(R.id.restaurant);
-        //title.setText(restaurantName);
+        String restaurantName = k.getStringExtra("restoName");
+        TextView title = (TextView) findViewById(R.id.restaurant);
+        title.setText(restaurantName);
         populateListView();
     }
 
@@ -45,6 +46,7 @@ public class ClientChooseMenu extends AppCompatActivity {
         //GET THE DATA AND APPEND TO A LIST
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
+
         ArrayList<String> listData = databaseAccess.getMenuItemsNames(restaurantId);
 
 

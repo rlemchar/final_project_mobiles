@@ -17,7 +17,7 @@ public class OrderConfirmation extends AppCompatActivity {
     m = getIntent();
         TextView title = (TextView) findViewById(R.id.title);
         String menu = m.getStringExtra("menuItem");
-        Log.i("titel", menu);
+        Log.i("title", menu);
         title.setText(menu);
     }
 

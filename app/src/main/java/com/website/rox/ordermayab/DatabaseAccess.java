@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -111,9 +112,9 @@ public class DatabaseAccess {
         return list;
     }
 
-    public  ArrayList<MenuItem> getMenuItems() {
+    public  ArrayList<MenuItem> getMenuItems(String name) {
         ArrayList<MenuItem> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM menuItem ", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM menuItem WHERE name=" + name, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             MenuItem item = new MenuItem(cursor.getString(0), cursor.getString(1), cursor.getDouble(2));
@@ -122,11 +123,13 @@ public class DatabaseAccess {
         }
         cursor.close();
         return list;
+
     }
 
     public  ArrayList<String> getMenuItemsNames(int restaurant) {
         ArrayList<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM menuItem ", null);
+        Log.i("restid  getMenuItems", "" + restaurant);
+        Cursor cursor = database.rawQuery("SELECT * FROM menuItem WHERE restaurantId=" + restaurant, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
 
