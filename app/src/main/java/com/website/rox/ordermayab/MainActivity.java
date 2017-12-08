@@ -24,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
             editor.putInt("ID_counter",1111111);
             editor.commit();
         }
+<<<<<<< HEAD
         //OrderDatabase.addOrder();
+=======
+
+
+>>>>>>> 97fff2ec263dec6df80b207f772df2c85c5c68ef
     }
 
     public void signIn(View view){

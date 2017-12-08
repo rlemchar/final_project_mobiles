@@ -34,11 +34,16 @@
         <activity android:name=".LogInActivity" />
         <activity android:name=".ClientSelectRestaurantActivity" />
         <activity android:name=".ClientSeeOrderActivity" />
+<<<<<<< HEAD
         <activity android:name=".ClientChooseMenu" />
 
         <activity android:name=".OrderConfirmation"></activity>
 
 
+=======
+        <activity android:name=".OrderConfirmation"></activity>
+
+>>>>>>> 97fff2ec263dec6df80b207f772df2c85c5c68ef
     </application>
 
 </manifest>

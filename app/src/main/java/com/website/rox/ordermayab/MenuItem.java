@@ -16,6 +16,14 @@ public class MenuItem {
         this.price = price;
     }
 
+    MenuItem(){
+        this.name = "";
+        this.description = "";
+        this.price = 0;
+    }
+
+
+
 
 
 }
